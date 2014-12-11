@@ -27,9 +27,9 @@ Project located at <https://github.com/benblazak/ergodox-firmware>
 
 /* USB Device descriptor parameter */
 #define VENDOR_ID       0xFEED
-#define PRODUCT_ID      0x1307
-#define DEVICE_VER      0x0001
-#define MANUFACTURER    TMK/Cub
+#define PRODUCT_ID      0xD34D
+#define DEVICE_VER      0x0003
+#define MANUFACTURER    cfredmakecode
 #define PRODUCT         Ergodox
 #define DESCRIPTION     t.m.k. keyboard firmware for Ergodox
 
@@ -40,7 +40,17 @@ Project located at <https://github.com/benblazak/ergodox-firmware>
 #define MOUSEKEY_INTERVAL       20
 #define MOUSEKEY_MAX_SPEED      3
 #define MOUSEKEY_TIME_TO_MAX    10
-
+ /* PS/2 mouse */
+#ifdef PS2_USE_BUSYWAIT
+#   define PS2_CLOCK_PORT  PORTD
+#   define PS2_CLOCK_PIN   PIND
+#   define PS2_CLOCK_DDR   DDRD
+#   define PS2_CLOCK_BIT   5
+#   define PS2_DATA_PORT   PORTD
+#   define PS2_DATA_PIN    PIND
+#   define PS2_DATA_DDR    DDRD
+#   define PS2_DATA_BIT    4
+#endif
 /* define if matrix has ghost */
 //#define MATRIX_HAS_GHOST
 
